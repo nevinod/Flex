@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import queryString from 'query-string'
-import playlistIndex from './playlistIndex'
+import PlaylistIndex from './playlistIndex'
 
 class App extends Component {
   constructor() {
@@ -39,9 +39,11 @@ class App extends Component {
   // }
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     return (
+
     <div>
+      <PlaylistIndex data={this.state.playlists}/>
       <div id="navbar">
         <div id="logo-container">
           <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" alt="Spotify"/>
