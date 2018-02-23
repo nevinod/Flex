@@ -1,11 +1,16 @@
 import React from 'react';
 
-class playlistIndex extends React.Component {
+class PlaylistIndex extends React.Component {
+  constructor() {
+    super();
+  }
+
   render() {
+    console.log(this);
     return (
       <div></div>
     )
   }
 }
 
-export default playlistIndex
+export default PlaylistIndex
