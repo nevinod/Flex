@@ -41,17 +41,42 @@ class App extends Component {
   render() {
     console.log(this.state);
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <button onClick={() => window.location = 'http://localhost:8888/login' }>SIGN IN WITH SPOTIFY</button>
-
+    <div>
+      <div id="navbar">
+        <div id="logo-container">
+          <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" alt="Spotify"/>
+          <span id="title">
+            S 3
+          </span>
+        </div>
+        <div id="spotifyBox">
+          <button id="getSpotify">
+            GET SPOTIFY
+          </button>
+        </div>
       </div>
+      <div id="background">
+      </div>
+      <div id="s3-pitch">
+        <h1>
+          The Spotify Song Selector
+        </h1>
+        <h3>
+          Tired of the same old songs?
+          <br/>
+          <br/>
+          S3 aims to provide the user with new and refreshing sound waves with a click of a button. After the user chooses a playlist from their profile, S3 provides a list of songs for the user to listen to that is similar in sound.
+          <br/>
+          <br/>
+          Give it a try, login below!
+          <div id="login-button" onClick={() => window.location = 'http://localhost:8888/login' }>
+            LOGIN SPOTIFY
+          </div>
+        </h3>
+      </div>
+      <div id="bottom-bar">
+      </div>
+    </div>
     );
   }
 
