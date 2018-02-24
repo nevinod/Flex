@@ -1,4 +1,5 @@
 import React from 'react';
+import PlaylistItem from './playlistItem';
 
 class PlaylistIndex extends React.Component {
   constructor() {
@@ -7,10 +8,21 @@ class PlaylistIndex extends React.Component {
 
   render() {
     console.log(this);
-    return (
-      <div></div>
-    )
+    if (this.props.data.items) {
+      return (
+        <div id="playlist">
+        { this.props.data.items.map(item =>
+          item.name) }
+        </div>
+      )
+    } else {
+      return (
+      <div>
+        <h1>waiting</h1>
+      </div>
+      )
+    }
   }
 }
 
-export default PlaylistIndex
+export default PlaylistIndex;
