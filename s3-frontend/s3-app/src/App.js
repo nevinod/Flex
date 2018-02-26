@@ -18,6 +18,7 @@ class App extends Component {
     // this.getAlbumsFromSongs = this.getAlbumsFromSongs.bind(this)
     this.getPlaylistSongs = this.getPlaylistSongs.bind(this)
     this.recommendation = this.recommendation.bind(this)
+    this.getAlbumsFromSongs = this.getAlbumsFromSongs.bind(this)
   }
 
   componentWillMount() {
@@ -28,9 +29,9 @@ class App extends Component {
       headers: { 'Authorization': 'Bearer ' + accessToken }
     }).then(response => response.json())
       .then(data => this.setState({playlists: data }))
-      .then(() => that.getPlaylistSongs())
-      .then(() => that.getAlbumsFromSongs())
-      .then(() => that.recommendation())
+      // .then(() => that.getPlaylistSongs())
+      // .then(() => that.getAlbumsFromSongs())
+      // .then(() => that.recommendation())
   }
 
   async getPlaylistSongs() {
@@ -100,7 +101,8 @@ class App extends Component {
       <PlaylistIndex
         data={this.state.playlists}
         getPlaylistSongs={this.getPlaylistSongs}
-        recommendation={this.recommendation} />
+        recommendation={this.recommendation}
+        getAlbumsFromSongs={this.getAlbumsFromSongs} />
       <div id="navbar">
         <div id="logo-container">
           <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" alt="Spotify"/>

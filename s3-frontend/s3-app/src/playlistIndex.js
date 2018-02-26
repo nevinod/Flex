@@ -4,6 +4,17 @@ import PlaylistItem from './playlistItem';
 class PlaylistIndex extends React.Component {
   constructor() {
     super();
+    // this.state = {
+    //   grabbed: false;
+    // }
+  }
+
+  async combinedFuncs() {
+    await this.props.getPlaylistSongs();
+    this.props.getAlbumsFromSongs();
+    this.props.recommendation();
+    // console.log("HEWWO");
+    // this.setState({grabbed: true})
   }
 
   render() {
@@ -16,7 +27,7 @@ class PlaylistIndex extends React.Component {
               { this.props.data.items.map(item =>
               <li>
                 <div id="playlist-img" >
-                  <img src={item.images[0].url} height="100" width="100" onClick="nothing"/>
+                  <img src={item.images[0].url} height="100" width="100" onClick={() => this.combinedFuncs()}/>
                   <h3>
                     {item.name}
                   </h3>
