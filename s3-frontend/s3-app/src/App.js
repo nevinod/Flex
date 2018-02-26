@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import queryString from 'query-string'
 import PlaylistIndex from './playlistIndex'
+import merge from 'lodash/merge';
 
 class App extends Component {
   constructor() {
@@ -10,8 +11,11 @@ class App extends Component {
     this.state = {
       serverData: {},
       playlists: {},
-      songs: {}
+      songs: {},
+      albums: [],
+      recommended: {}
     }
+    // this.getAlbumsFromSongs = this.getAlbumsFromSongs.bind(this)
   }
 
   componentWillMount() {
@@ -22,24 +26,72 @@ class App extends Component {
       headers: { 'Authorization': 'Bearer ' + accessToken }
     }).then(response => response.json())
       .then(data => this.setState({playlists: data }))
-      // .then(() => that.getPlaylistSongs())
+      .then(() => that.getPlaylistSongs())
+      .then(() => that.getAlbumsFromSongs())
+      .then(() => that.recommendation())
   }
 
-  // getPlaylistSongs() {
+  async getPlaylistSongs() {
+    let parsed = queryString.parse(window.location.search)
+    let accessToken = parsed.access_token
+    if(this.state.playlists.items) {
+      for(let i = 0; i < this.state.playlists.items.length; i++) {
+        await fetch(`https://api.spotify.com/v1/users/${this.state.playlists.items[i].owner.id}/playlists/${this.state.playlists.items[i].id}/tracks`, {
+          headers: { 'Authorization': 'Bearer ' + accessToken }
+        }).then(response => response.json())
+          .then(data => this.setState({songs: data}))
+      }
+    }
+  }
+
+  async recommendation() {
+    let parsed = queryString.parse(window.location.search)
+    let accessToken = parsed.access_token
+    let notUnique = true
+    if(this.state.songs.items && notUnique) {
+      await fetch(`https://api.spotify.com/v1/recommendations?seed_tracks=${this.state.songs.items[0].track.id}&limit=20`, {
+        headers: { 'Authorization': 'Bearer ' + accessToken }
+      }).then(response => response.json())
+        .then(data => this.setState({recommended: data}))
+    }
+
+  }
+
+  // fetchNow(trackID) {
+  //   let found = false
   //   let parsed = queryString.parse(window.location.search)
   //   let accessToken = parsed.access_token
-  //   if(this.state.playlists.items) {
-  //     for(let i = 0; i < this.state.playlists.items.length; i++) {
-  //       fetch(`https://api.spotify.com/v1/users/${this.state.playlists.items[i].owner.id}/playlists/${this.state.playlists.items[i].id}/tracks`, {
-  //         headers: { 'Authorization': 'Bearer ' + accessToken }
-  //       }).then(response => response.json())
-  //         .then(data => this.setState({songs: data}))
-  //     }
-  //   }
+  //   fetch(`https://api.spotify.com/v1/tracks/${trackID}`, {
+  //     headers: { 'Authorization': 'Bearer ' + accessToken }
+  //   }).then(response => response.json())
+  //     .then(data => return data)
   // }
 
+
+
+  async getAlbumsFromSongs() {
+    let parsed = queryString.parse(window.location.search)
+    let accessToken = parsed.access_token
+    // console.log("IN ALBUMS");
+    // console.log(this.state.songs);
+    if(this.state.songs.items) {
+      // console.log("IN IF");
+      for(let i = 0; i < this.state.songs.items.length; i++) {
+        await fetch(`https://api.spotify.com/v1/albums/${this.state.songs.items[i].track.album.id}`, {
+          headers: { 'Authorization': 'Bearer ' + accessToken }
+        }).then(response => response.json())
+          .then(data => {
+            let temp = this.state.albums
+            temp.push(data)
+            this.setState({albums: temp}) })
+      }
+    }
+  }
+
   render() {
-    // console.log(this.state);
+    // this.fetchNow("3n3Ppam7vgaVa1iaRUc9Lp")
+    console.log("IN RENDER");
+    console.log(this.state);
     return (
 
     <div>
