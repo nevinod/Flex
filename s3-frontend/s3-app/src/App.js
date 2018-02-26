@@ -16,6 +16,8 @@ class App extends Component {
       recommended: {}
     }
     // this.getAlbumsFromSongs = this.getAlbumsFromSongs.bind(this)
+    this.getPlaylistSongs = this.getPlaylistSongs.bind(this)
+    this.recommendation = this.recommendation.bind(this)
   }
 
   componentWillMount() {
@@ -95,7 +97,10 @@ class App extends Component {
     return (
 
     <div>
-      <PlaylistIndex data={this.state.playlists}/>
+      <PlaylistIndex
+        data={this.state.playlists}
+        getPlaylistSongs={this.getPlaylistSongs}
+        recommendation={this.recommendation} />
       <div id="navbar">
         <div id="logo-container">
           <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" alt="Spotify"/>
