@@ -14,7 +14,8 @@ class App extends Component {
       songs: {},
       albums: [],
       recommended: {},
-      loggedIn: false
+      loggedIn: false,
+      sorted: []
     }
     // this.getAlbumsFromSongs = this.getAlbumsFromSongs.bind(this)
     this.getPlaylistSongs = this.getPlaylistSongs.bind(this)
@@ -52,8 +53,12 @@ class App extends Component {
     let parsed = queryString.parse(window.location.search)
     let accessToken = parsed.access_token
     let notUnique = true
+    let tempSorted = this.state.songs.items.sort(function(a,b) {
+      return b.track.popularity - a.track.popularity
+    })
+    this.setState({sorted: tempSorted})
     if(this.state.songs.items && notUnique) {
-      await fetch(`https://api.spotify.com/v1/recommendations?seed_tracks=${this.state.songs.items[0].track.id}&limit=20`, {
+      await fetch(`https://api.spotify.com/v1/recommendations?seed_tracks=${this.state.sorted[0].track.id},${this.state.sorted[1].track.id},${this.state.sorted[2].track.id},${this.state.sorted[3].track.id},${this.state.sorted[4].track.id}&limit=10`, {
         headers: { 'Authorization': 'Bearer ' + accessToken }
       }).then(response => response.json())
         .then(data => this.setState({recommended: data}))
@@ -107,9 +112,9 @@ class App extends Component {
               </span>
             </div>
             <div id="spotifyBox">
-              <button id="getSpotify">
+              <div id="getSpotify" onClick={() => window.location = 'https://www.spotify.com/us' }>
                 GET SPOTIFY
-              </button>
+              </div>
             </div>
           </div>
           <PlaylistIndex
@@ -132,9 +137,9 @@ class App extends Component {
           </span>
         </div>
         <div id="spotifyBox">
-          <button id="getSpotify">
+          <div id="getSpotify" onClick={() => window.location = 'https://www.spotify.com/us' }>
             GET SPOTIFY
-          </button>
+          </div>
         </div>
       </div>
       <div id="background">
