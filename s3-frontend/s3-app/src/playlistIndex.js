@@ -11,8 +11,19 @@ class PlaylistIndex extends React.Component {
     if (this.props.data.items) {
       return (
         <div id="playlist">
-        { this.props.data.items.map(item =>
-          item.name) }
+          <ul>
+
+              { this.props.data.items.map(item =>
+              <li>
+                <div id="playlist-img" >
+                  <img src={item.images[0].url} height="100" width="100" onClick="nothing"/>
+                  <h3>
+                    {item.name}
+                  </h3>
+                </div>
+              </li>)}
+
+          </ul>
         </div>
       )
     } else {
