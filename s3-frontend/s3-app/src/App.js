@@ -13,7 +13,8 @@ class App extends Component {
       playlists: {},
       songs: {},
       albums: [],
-      recommended: {}
+      recommended: {},
+      loggedIn: false
     }
     // this.getAlbumsFromSongs = this.getAlbumsFromSongs.bind(this)
     this.getPlaylistSongs = this.getPlaylistSongs.bind(this)
@@ -95,14 +96,34 @@ class App extends Component {
     // this.fetchNow("3n3Ppam7vgaVa1iaRUc9Lp")
     console.log("IN RENDER");
     console.log(this.state);
-    return (
-
+    if (this.state.playlists.items) {
+      return (
+        <div>
+          <div id="navbar">
+            <div id="logo-container">
+              <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" alt="Spotify"/>
+              <span id="title">
+                S 3
+              </span>
+            </div>
+            <div id="spotifyBox">
+              <button id="getSpotify">
+                GET SPOTIFY
+              </button>
+            </div>
+          </div>
+          <PlaylistIndex
+          data={this.state.playlists}
+          getPlaylistSongs={this.getPlaylistSongs}
+          recommendation={this.recommendation}
+          getAlbumsFromSongs={this.getAlbumsFromSongs}
+          recommended={this.state.recommended}/>
+        </div>
+      )
+    }
+    else {
+      return (
     <div>
-      <PlaylistIndex
-        data={this.state.playlists}
-        getPlaylistSongs={this.getPlaylistSongs}
-        recommendation={this.recommendation}
-        getAlbumsFromSongs={this.getAlbumsFromSongs} />
       <div id="navbar">
         <div id="logo-container">
           <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" alt="Spotify"/>
@@ -139,6 +160,7 @@ class App extends Component {
       </div>
     </div>
     );
+  }
   }
 
 
