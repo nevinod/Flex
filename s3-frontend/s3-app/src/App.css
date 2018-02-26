@@ -159,7 +159,7 @@
   position: absolute;
   left: 20%;
   top: 270px;
-  width: 500px;
+  width: 300px;
   height: 500px;
   border: 1px solid black;
   background-color: grey;
@@ -177,5 +177,19 @@
   width: 200px;
   height: 100px;
   background-color: blue;
+  overflow: scroll;
+}
+
+#recommended-songs {
+  position: absolute;
+  left: 60%;
+  top: 270px;
+  width: 300px;
+  height: 500px;
+  border: 1px solid black;
+  background-color: grey;
+  margin-left: -100px;
+  margin-top: -100px;
+  z-index: 1;
   overflow: scroll;
 }
