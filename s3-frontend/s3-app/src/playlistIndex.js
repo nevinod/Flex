@@ -24,21 +24,25 @@ class PlaylistIndex extends React.Component {
               <li>
                 <div id="playlist-img" >
                   <img src={item.images[0].url} height="100" width="100" onClick={() => this.combinedFuncs()}/>
-                  <h3>
+                  <h1 id="playlist-title">
                     {item.name}
-                  </h3>
+                  </h1>
                 </div>
               </li>)}
             </ul>
           </div>
           <div id="recommended-songs">
-            <h1>
+            <h2>
+              Recommended Songs
+            </h2>
+            <h3>
               {this.props.recommended.tracks.map(song =>
               <li>
-                {song.name}
+                <img src={song.album.images[0].url} height="100" width="100" />
+                {song.artists[0].name} - {song.name}
               </li>
               )}
-            </h1>
+            </h3>
           </div>
         </div>
       )
@@ -50,9 +54,9 @@ class PlaylistIndex extends React.Component {
             <li>
               <div id="playlist-img" >
                 <img src={item.images[0].url} height="100" width="100" onClick={() => this.combinedFuncs()}/>
-                <h3>
+                <h1>
                   {item.name}
-                </h3>
+                </h1>
               </div>
             </li>)}
           </ul>
