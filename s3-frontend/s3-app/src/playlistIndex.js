@@ -7,9 +7,9 @@ class PlaylistIndex extends React.Component {
   }
 
   async combinedFuncs() {
-    await this.props.getPlaylistSongs();
-    this.props.getAlbumsFromSongs();
-    this.props.recommendation();
+      await this.props.getPlaylistSongs();
+      this.props.getAlbumsFromSongs();
+      this.props.recommendation();
     // console.log("HEWWO");
   }
 
