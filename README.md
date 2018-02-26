@@ -43,10 +43,6 @@ Frontend: React / Express
   * Clean menu and visual cue to show new apps
 
 
-## Project Flowchart
-
-![flex project](https://user-images.githubusercontent.com/26920351/36368730-7e382306-150d-11e8-9ab6-1ffb07730130.png)
-
 ## Accomplish over the Weekend
 * Learn basics of Django
 * Learn Python syntax
