@@ -20,6 +20,9 @@ class PlaylistIndex extends React.Component {
         <div>
           <div id="playlist">
             <ul>
+              <h2>
+              Playlists
+              </h2>
               { this.props.data.items.map(item =>
               <li>
                 <div id="playlist-img" >
@@ -55,13 +58,16 @@ class PlaylistIndex extends React.Component {
       return (
         <div id="playlist">
           <ul>
+          <h2>
+          Playlists
+          </h2>
             { this.props.data.items.map(item =>
             <li id="playlist-item">
               <div id="playlist-img" >
                 <img src={item.images[0].url} height="100" width="100" onClick={() => this.combinedFuncs()}/>
-                <h2 id="playlist-title">
+                <h1 id="playlist-title">
                   {item.name}
-                </h2>
+                </h1>
               </div>
             </li>)}
           </ul>
