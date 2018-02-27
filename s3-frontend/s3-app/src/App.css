@@ -156,7 +156,6 @@
 /* play list styling */
 
 #playlist {
-  position: relative;
   left: 0px;
   top: 90px;
   width: 40%;
@@ -168,26 +167,36 @@
   /* margin-top: -100px; */
   z-index: 1;
   overflow: scroll;
+  display: flex;
+  flex-direction: row;
+  margin-top: 122px;
 }
 
-#playlist li {
+/* #playlist li {
   list-style: none;
+  background-color: LightGrey;
 
-}
+
+} */
 
 #playlist-img {
   cursor: pointer;
-  display: inline-block;
+  display: flex;
+  flex-direction: row;
   padding: 20px;
   position: relative;
   width: 300px;
   /* height: 100px; */
-  /* background-color: blue; */
+  background-color: LightGrey;
   overflow: auto;
   font-size: 10px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 1px grey;
+  margin-right: 25px;
 }
 
 #playlist-title {
+  margin-left: 25px;
 }
 
 #recommended-songs {
@@ -207,6 +216,7 @@
 
 #recommended-songs h3 li {
   list-style: none;
+  margin-left: 50px;
 }
 
 #artist-name {
