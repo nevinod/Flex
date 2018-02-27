@@ -156,11 +156,12 @@
 /* play list styling */
 
 #playlist {
-  position: absolute;
+  position: relative;
   left: 0px;
   top: 90px;
-  width: 30%;
+  width: 40%;
   height: 88vh;
+  margin-left: 100px;
   /* border: 1px solid black; */
   background-color: transparent;
   /* margin-left: -100px; */
@@ -191,10 +192,11 @@
 
 #recommended-songs {
   position: absolute;
-  left: 50%;
+  left: 35%;
   top: 90px;
-  width: 30%;
+  width: 40%;
   height: 88vh;
+  margin-left: 100px;
   /* border: 1px solid black; */
   background-color: transparent;
   /* margin-left: -100px; */
@@ -205,4 +207,28 @@
 
 #recommended-songs h3 li {
   list-style: none;
+}
+
+#artist-name {
+  font-size: 18px;
+  margin-right: 20px;
+  margin-left: 25px;
+}
+
+#song-name {
+  font-size: 18px;
+}
+
+#recommendation {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 25px;
+  background-color: LightGrey;
+  border-radius: 10px;
+  box-shadow: 3px 3px 1px grey;
+
+}
+
+#img {
+  border-radius: 10px;
 }
