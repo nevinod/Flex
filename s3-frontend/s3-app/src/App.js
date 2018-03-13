@@ -119,6 +119,18 @@ class App extends Component {
               </div>
             </div>
           </div>
+          <a href="https://github.com/nevinod">
+            <img id="github-icon" src="https://png.icons8.com/metro/1600/github.png" alt="GitHub"/>
+          </a>
+          <a href="https://www.linkedin.com/in/neil-vinod-751490159/">
+            <img id="linkedin-icon" src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_black-256.png" alt="LinkedIn"/>
+          </a>
+          <a href="https://github.com/BrianisWinston">
+            <img id="github-icon-winston" src="https://png.icons8.com/metro/1600/github.png" alt="GitHub"/>
+          </a>
+          <a href="https://www.linkedin.com/in/winston-galas-96ab3ba3/">
+            <img id="linkedin-icon-winston" src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_black-256.png" alt="LinkedIn"/>
+          </a>
           <div >
             <PlaylistIndex
             data={this.state.playlists}
@@ -152,6 +164,18 @@ class App extends Component {
       </div>
       <div id="background">
       </div>
+      <a href="https://github.com/nevinod">
+        <img id="github-icon" src="https://png.icons8.com/metro/1600/github.png" alt="GitHub"/>
+      </a>
+      <a href="https://www.linkedin.com/in/neil-vinod-751490159/">
+        <img id="linkedin-icon" src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_black-256.png" alt="LinkedIn"/>
+      </a>
+      <a href="https://github.com/BrianisWinston">
+        <img id="github-icon-winston" src="https://png.icons8.com/metro/1600/github.png" alt="GitHub"/>
+      </a>
+      <a href="https://www.linkedin.com/in/winston-galas-96ab3ba3/">
+        <img id="linkedin-icon-winston" src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_black-256.png" alt="LinkedIn"/>
+      </a>
       <div id="s3-pitch">
         <h1>
           The Spotify Song Selector
