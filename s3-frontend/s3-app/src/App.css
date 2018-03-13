@@ -107,13 +107,16 @@
   /* margin-left: -763px; */
   width: 80%;
   margin-left: 9%;
+
 }
 
 #s3-pitch h1 {
   font-size: 60px;
-  color: #2e2f33;
+  color: black;
   font-weight: 400;
   text-align: center;
+  /* text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; */
+
 }
 
 #s3-pitch h3 {
@@ -121,7 +124,7 @@
   text-align: center;
   font-size: 25px;
   font-weight: lighter;
-  color: #2e2f33;
+  color: black;
   margin-top: -10px;
 }
 
@@ -212,8 +215,11 @@
 }
 
 #playlist-title {
-  margin-left: 25px;
-  margin-top: 37px;
+  /* margin-left: 25px; */
+  margin-top: 10px;
+  font-family: 'Karla', sans-serif;
+  font-size: 25px;
+  font-weight: 400;
   /* margin-bottom: 25px; */
 }
 
@@ -229,8 +235,12 @@
   overflow: scroll;
   display: flex;
   flex-direction: column;
-  margin-right: 10%;
+  /* margin-right: 10%; */
   margin-top: 10px;
+  margin-bottom: 0px;
+  margin-left: 5px;
+  margin-right: 65px;
+  /* margin-top: 10px; */
 }
 
 #recommended-songs h3 li {
@@ -283,19 +293,19 @@
 }
 
 #everything-on-rec {
-  height: 500px;
+  height: 475px;
   width: 1000px;
-  border-style: solid;
+  /* border-style: solid; */
   position: center;
   display: flex;
   flex-direction: row;
   /* margin-top: 150px; */
   margin: auto;
-  margin-top: 200px;
+  margin-top: 175px;
   justify-content: space-between;
   border-radius: 10px;
-  box-shadow: 10px 10px 5px grey;
-  /* background-color: LightGreen; */
+  /* box-shadow: 10px 10px 5px grey; */
+  background-color: #e6ffff;
 
 }
 
@@ -321,12 +331,44 @@
 
 #only-playlist {
   margin: auto;
-  border-style: solid;
-  width: 25%;
-  margin-top: 225px;
+  /* border-style: solid; */
+  width: 450px;
+  margin-top: 150px;
   border-radius: 10px;
-  box-shadow: 10px 10px 5px grey;
+  /* box-shadow: 10px 10px 5px grey; */
+  height: 500px;
+  overflow: scroll;
+  background-color: #e6ffff;
 
+}
+
+html {
+  background-image: url(https://wallpapersite.com/images/wallpapers/mountains-wallpaper-1920x1200-silent-sunset-minimal-5k-10447.jpg);
+  /* width: 100%; */
+  height: 200px;
+}
+
+#login-screen {
+  background-image: url(https://wallpapersite.com/images/wallpapers/mountains-wallpaper-1920x1200-silent-sunset-minimal-5k-10447.jpg);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+#playlist-info {
+  display: flex;
+  flex-direction: column;
+  height: 20%;
+  margin-left: 25px;
+  margin-top: 10px;
+}
+
+#count-tracks {
+  /* margin-left: 0px; */
+  margin-top: -5px;
+  font-size: 15px;
+  font-family: 'Karla', sans-serif;
+  font-weight: 400;
 }
 
 #github-icon {
