@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import queryString from 'query-string'
 import PlaylistIndex from './playlistIndex'
-import merge from 'lodash/merge';
+// import merge from 'lodash/merge';
 
 class App extends Component {
   constructor() {
@@ -26,7 +26,7 @@ class App extends Component {
   componentWillMount() {
     let parsed = queryString.parse(window.location.search)
     let accessToken = parsed.access_token
-    let that = this
+    // let that = this
     fetch('https://api.spotify.com/v1/me/playlists', {
       headers: { 'Authorization': 'Bearer ' + accessToken }
     }).then(response => response.json())
@@ -102,6 +102,9 @@ class App extends Component {
     if (this.state.playlists.items) {
       return (
         <div>
+          <head>
+            <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet"></link>
+          </head>
           <div id="navbar">
             <div id="logo-container">
               <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" alt="Spotify"/>
@@ -129,6 +132,9 @@ class App extends Component {
     else {
       return (
     <div>
+      <head>
+        <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet"></link>
+      </head>
       <div id="navbar">
         <div id="logo-container">
           <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" alt="Spotify"/>
