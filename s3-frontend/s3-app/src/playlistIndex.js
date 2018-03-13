@@ -15,7 +15,21 @@ class PlaylistIndex extends React.Component {
 
   render() {
     console.log(this);
-    if (this.props.recommended.tracks) {
+    let first_url = []
+    if(this.props.recommended.tracks) {
+      first_url.push("https://open.spotify.com/embed?uri=" + this.props.recommended.tracks[0].uri)
+      first_url.push("https://open.spotify.com/embed?uri=" + this.props.recommended.tracks[1].uri)
+      first_url.push("https://open.spotify.com/embed?uri=" + this.props.recommended.tracks[2].uri)
+      first_url.push("https://open.spotify.com/embed?uri=" + this.props.recommended.tracks[3].uri)
+      first_url.push("https://open.spotify.com/embed?uri=" + this.props.recommended.tracks[4].uri)
+      first_url.push("https://open.spotify.com/embed?uri=" + this.props.recommended.tracks[5].uri)
+      first_url.push("https://open.spotify.com/embed?uri=" + this.props.recommended.tracks[6].uri)
+      first_url.push("https://open.spotify.com/embed?uri=" + this.props.recommended.tracks[7].uri)
+      first_url.push("https://open.spotify.com/embed?uri=" + this.props.recommended.tracks[8].uri)
+      first_url.push("https://open.spotify.com/embed?uri=" + this.props.recommended.tracks[9].uri)
+      console.log(first_url);
+    }
+    if (this.props.recommended.tracks ) {
       return (
         <div id="everything-on-rec">
           <div id="playlist">
@@ -39,20 +53,18 @@ class PlaylistIndex extends React.Component {
             <h2 id="rec-title">
               Recommended Songs
             </h2>
+            <iframe id="web-player" src={first_url[0]} width="350" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            <iframe id="web-player" src={first_url[1]} width="350" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            <iframe id="web-player" src={first_url[2]} width="350" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            <iframe id="web-player" src={first_url[3]} width="350" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            <iframe id="web-player" src={first_url[4]} width="350" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            <iframe id="web-player" src={first_url[5]} width="350" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            <iframe id="web-player" src={first_url[6]} width="350" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            <iframe id="web-player" src={first_url[7]} width="350" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            <iframe id="web-player" src={first_url[8]} width="350" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            <iframe id="web-player" src={first_url[9]} width="350" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
             <ul>
-              {this.props.recommended.tracks.map(song =>
-              <li id="recommendation">
-                <img src={song.album.images[0].url} height="100" width="100" />
-                <div id="titles">
-                  <h2 id="song-name">
-                    {song.name}
-                  </h2>
-                  <h2 id="artist-name">
-                    {song.artists[0].name}
-                  </h2>
-                </div>
-              </li>
-              )}
+
             </ul>
           </div>
         </div>
