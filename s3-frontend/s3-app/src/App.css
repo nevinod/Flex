@@ -169,7 +169,7 @@
   overflow: scroll;
   display: flex;
   flex-direction: row;
-  margin-top: 90px;
+  margin-top: 5px;
 }
 
 #playlist li {
@@ -208,6 +208,7 @@
 
 #playlist-title {
   margin-left: 25px;
+  margin-top: 37px;
   /* margin-bottom: 25px; */
 }
 
@@ -224,6 +225,7 @@
   display: flex;
   flex-direction: column;
   margin-right: 10%;
+  margin-top: 10px;
 }
 
 #recommended-songs h3 li {
@@ -262,8 +264,10 @@
 }
 
 #playlist h2 {
-  margin-top: 10px;
-  margin-bottom: 15px;
+  margin-top: 17px;
+  margin-bottom: 20px;
+  font-family: 'Karla', sans-serif;
+  font-size: 40px;
 }
 
 #titles {
@@ -281,14 +285,20 @@
   flex-direction: row;
   /* margin-top: 150px; */
   margin: auto;
-  margin-top: 150px;
+  margin-top: 200px;
   justify-content: space-between;
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px grey;
+  background-color: LightGreen;
 
 }
 
 #rec-title {
   margin-left: 39px;
-  margin-bottom: 30px;
+  margin-bottom: 27px;
+  font-family: 'Karla', sans-serif;
+  font-size: 40px;
+  margin-top: 26px;
 }
 
 #line {
@@ -300,4 +310,14 @@
 #web-player {
   margin-left: 40px;
   margin-bottom: 25px;
+}
+
+#only-playlist {
+  margin: auto;
+  border-style: solid;
+  width: 25%;
+  margin-top: 225px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px grey;
+
 }
