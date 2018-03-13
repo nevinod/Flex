@@ -117,12 +117,14 @@ class App extends Component {
               </div>
             </div>
           </div>
-          <PlaylistIndex
-          data={this.state.playlists}
-          getPlaylistSongs={this.getPlaylistSongs}
-          recommendation={this.recommendation}
-          getAlbumsFromSongs={this.getAlbumsFromSongs}
-          recommended={this.state.recommended}/>
+          <div >
+            <PlaylistIndex
+            data={this.state.playlists}
+            getPlaylistSongs={this.getPlaylistSongs}
+            recommendation={this.recommendation}
+            getAlbumsFromSongs={this.getAlbumsFromSongs}
+            recommended={this.state.recommended}/>
+          </div>
         </div>
       )
     }
@@ -156,7 +158,7 @@ class App extends Component {
           <br/>
           <br/>
           Give it a try, login below!
-          <div id="login-button" onClick={() => window.location = '/login' }>
+          <div id="login-button" onClick={() => window.location = 'http://localhost:8888/login' }>
             LOGIN SPOTIFY
           </div>
         </h3>

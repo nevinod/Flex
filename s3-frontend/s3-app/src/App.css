@@ -158,9 +158,9 @@
 #playlist {
   left: 0px;
   top: 90px;
-  width: 32%;
-  height: 89vh;
-  margin-left: 100px;
+  /* width: 32%; */
+  /* height: 89vh; */
+  margin-left: 5%;
   /* border: 1px solid black; */
   background-color: transparent;
   /* margin-left: -100px; */
@@ -174,6 +174,9 @@
 
 #playlist li {
   list-style: none;
+  margin-right: 5%;
+  display: flex;
+  flex-direction: row;
   /* background-color: LightGrey; */
 
 
@@ -181,11 +184,11 @@
 
 #playlist-img {
   cursor: pointer;
-  display: flex;
+  /* display: flex;
   flex-direction: row;
-  margin: 27px;
+  margin-top: 27px;
   position: relative;
-  width: 300px;
+  width: 400px;
   /* height: 100px; */
   background-color: LightGrey;
   overflow: auto;
@@ -193,47 +196,59 @@
   border-radius: 10px;
   box-shadow: 3px 3px 1px grey;
   margin-right: 25px;
+  display: flex;
+  flex-direction: row;
+  width: 350px;
+  /* flex-direction: row; */
+  margin-bottom: 25px;
+  background-color: LightGrey;
+  border-radius: 10px;
+  box-shadow: 3px 3px 1px grey;
 }
 
 #playlist-title {
   margin-left: 25px;
+  /* margin-bottom: 25px; */
 }
 
 #recommended-songs {
-  position: absolute;
+  /* position: absolute;
   left: 35%;
   top: 90px;
   width: 40%;
   height: 89vh;
-  margin-left: 100px;
-  /* border: 1px solid black; */
   background-color: transparent;
-  /* margin-left: -100px; */
-  /* margin-top: -100px; */
-  z-index: 1;
+  z-index: 1; */
+  /* margin-left: -50px; */
   overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  margin-right: 10%;
 }
 
 #recommended-songs h3 li {
   list-style: none;
-  margin-left: 50px;
-}
-
-#artist-name {
-  font-size: 18px;
-  margin-right: 20px;
-  margin-left: 25px;
-
+  overflow: scroll;
 }
 
 #song-name {
-  font-size: 18px;
+  font-size: 21px;
+  margin-right: 20px;
+  margin-bottom: 8px;
+
+}
+
+#artist-name {
+  font-size: 14px;
   padding-right: 10px;
+  margin-top: 0px;
+  font-weight: 400;
 }
 
 #recommendation {
   display: flex;
-  width: 400px;
+  width: 350px;
+  flex-direction: row;
   /* flex-direction: row; */
   margin-bottom: 25px;
   background-color: LightGrey;
@@ -248,5 +263,35 @@
 
 #playlist h2 {
   margin-top: 10px;
-  margin-bottom: -8px;
+  margin-bottom: 15px;
+}
+
+#titles {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+#everything-on-rec {
+  height: 500px;
+  width: 1000px;
+  border-style: solid;
+  position: center;
+  display: flex;
+  flex-direction: row;
+  /* margin-top: 150px; */
+  margin: auto;
+  margin-top: 150px;
+  justify-content: space-between;
+
+}
+
+#rec-title {
+  margin-left: 39px;
+}
+
+#line {
+  border-left: 5px solid black;
+  height: 400px;
+  margin-top: 50px;
 }
