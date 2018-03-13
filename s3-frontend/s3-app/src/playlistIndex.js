@@ -17,7 +17,7 @@ class PlaylistIndex extends React.Component {
     console.log(this);
     if (this.props.recommended.tracks) {
       return (
-        <div>
+        <div id="everything-on-rec">
           <div id="playlist">
             <ul>
               <h2>
@@ -34,23 +34,26 @@ class PlaylistIndex extends React.Component {
               </li>)}
             </ul>
           </div>
+          <div id="line"></div>
           <div id="recommended-songs">
-            <h2>
+            <h2 id="rec-title">
               Recommended Songs
             </h2>
-            <h3>
+            <ul>
               {this.props.recommended.tracks.map(song =>
               <li id="recommendation">
                 <img src={song.album.images[0].url} height="100" width="100" />
-                <h2 id="artist-name">
-                  {song.artists[0].name}
-                </h2>
-                <h2 id="song-name">
-                  {song.name}
-                </h2>
+                <div id="titles">
+                  <h2 id="song-name">
+                    {song.name}
+                  </h2>
+                  <h2 id="artist-name">
+                    {song.artists[0].name}
+                  </h2>
+                </div>
               </li>
               )}
-            </h3>
+            </ul>
           </div>
         </div>
       )
