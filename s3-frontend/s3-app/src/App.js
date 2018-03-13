@@ -58,7 +58,8 @@ class App extends Component {
     })
     this.setState({sorted: tempSorted})
     if(this.state.songs.items && notUnique) {
-      await fetch(`https://api.spotify.com/v1/recommendations?seed_tracks=${this.state.sorted[0].track.id},${this.state.sorted[1].track.id},${this.state.sorted[2].track.id},${this.state.sorted[3].track.id},${this.state.sorted[4].track.id}&limit=10`, {
+      let templen = this.state.sorted.length
+      await fetch(`https://api.spotify.com/v1/recommendations?seed_tracks=${this.state.sorted[0].track.id},${this.state.sorted[1].track.id},${this.state.sorted[2].track.id},${this.state.sorted[templen - 2].track.id},${this.state.sorted[templen - 1].track.id}&limit=10`, {
         headers: { 'Authorization': 'Bearer ' + accessToken }
       }).then(response => response.json())
         .then(data => this.setState({recommended: data}))
@@ -82,7 +83,7 @@ class App extends Component {
     let parsed = queryString.parse(window.location.search)
     let accessToken = parsed.access_token
     // console.log("IN ALBUMS");
-    // console.log(this.state.songs);
+    console.log(this.state.songs);
     if(this.state.songs.items) {
       // console.log("IN IF");
       for(let i = 0; i < this.state.songs.items.length; i++) {
@@ -100,11 +101,12 @@ class App extends Component {
   render() {
     // this.fetchNow("3n3Ppam7vgaVa1iaRUc9Lp")
     if (this.state.playlists.items) {
+      console.log(this.state);
       return (
         <div>
           <head>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"></link>
-            <link href="https://fonts.googleapis.com/css?family=Karla:700" rel="stylesheet"></link>
+            <link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet"></link>
           </head>
           <div id="navbar">
             <div id="logo-container">
@@ -132,11 +134,12 @@ class App extends Component {
     }
     else {
       return (
-    <div>
+    <div >
       <head>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"></link>
-        <link href="https://fonts.googleapis.com/css?family=Karla:700" rel="stylesheet"></link>
+        <link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet"></link>
       </head>
+      <div id="login-screen"></div>
       <div id="navbar">
         <div id="logo-container">
           <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" alt="Spotify"/>

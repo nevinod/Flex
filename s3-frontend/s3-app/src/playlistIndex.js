@@ -40,11 +40,16 @@ class PlaylistIndex extends React.Component {
                 </h2>
                 { this.props.data.items.map(item =>
                 <li key={Math.random().toString(36).substr(2, 9)}>
-                  <div id="playlist-img" >
-                    <img alt="" src={item.images[0].url} height="100" width="100" onClick={() => this.combinedFuncs()}/>
-                    <h1 id="playlist-title">
-                      {item.name}
-                    </h1>
+                    <div id="playlist-img" >
+                      <img alt="" src={item.images[0].url} height="100" width="100" onClick={() => this.combinedFuncs()}/>
+                      <div id="playlist-info">
+                        <h1 id="playlist-title">
+                          {item.name}
+                        </h1>
+                        <h3 id="count-tracks">
+                          {item.tracks.total.toString() + " songs"}
+                        </h3>
+                      </div>
                   </div>
                 </li>)}
               </ul>
@@ -72,6 +77,7 @@ class PlaylistIndex extends React.Component {
         )
       // }
     } else if (this.props.data.items) {
+
       return (
         <div id="only-playlist">
           <div id="playlist">
@@ -83,9 +89,14 @@ class PlaylistIndex extends React.Component {
               <li id="playlist-item" key={Math.random().toString(36).substr(2, 9)}>
                 <div id="playlist-img" >
                   <img alt="" src={item.images[0].url} height="100" width="100" onClick={() => this.combinedFuncs()}/>
-                  <h1 id="playlist-title">
-                    {item.name}
-                  </h1>
+                  <div id="playlist-info">
+                    <h1 id="playlist-title">
+                      {item.name}
+                    </h1>
+                    <h3 id="count-tracks">
+                      {item.tracks.total.toString() + " songs"}
+                    </h3>
+                  </div>
                 </div>
               </li>)}
             </ul>
