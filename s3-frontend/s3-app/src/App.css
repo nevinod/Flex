@@ -288,10 +288,16 @@
 
 #rec-title {
   margin-left: 39px;
+  margin-bottom: 30px;
 }
 
 #line {
   border-left: 5px solid black;
   height: 400px;
   margin-top: 50px;
+}
+
+#web-player {
+  margin-left: 40px;
+  margin-bottom: 25px;
 }

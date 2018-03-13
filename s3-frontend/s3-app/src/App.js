@@ -99,8 +99,6 @@ class App extends Component {
 
   render() {
     // this.fetchNow("3n3Ppam7vgaVa1iaRUc9Lp")
-    console.log("IN RENDER");
-    console.log(this.state);
     if (this.state.playlists.items) {
       return (
         <div>
