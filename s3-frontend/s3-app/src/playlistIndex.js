@@ -29,7 +29,7 @@ class PlaylistIndex extends React.Component {
     if (this.props.recommended.tracks ) {
       // if(this.props.recommended.tracks.length === 10) {
         return (
-          <div id="everything-on-rec" class="animated fadeInRightBig">
+          <div id="everything-on-rec" className="animated fadeInRightBig">
             <div id="playlist">
               <ul>
                 <h2>

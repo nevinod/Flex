@@ -308,8 +308,7 @@
   justify-content: space-between;
   border-radius: 10px;
   /* box-shadow: 10px 10px 5px grey; */
-  background-color: #e6ffff;
-
+  background: rgba(0,0,0,0.5);
 }
 
 #rec-title {
