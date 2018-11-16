@@ -103,7 +103,7 @@ class App extends Component {
     if (this.state.playlists.items) {
       // console.log(this.state);
       return (
-        <div>
+        <div id="background-pic">
           <div>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"></link>
             <link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet"></link>
@@ -146,7 +146,7 @@ class App extends Component {
     }
     else {
       return (
-    <div >
+    <div id="background-pic">
       <div>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"></link>
         <link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet"></link>
@@ -164,8 +164,6 @@ class App extends Component {
             GET SPOTIFY
           </div>
         </div>
-      </div>
-      <div id="background">
       </div>
       <a href="https://github.com/nevinod">
         <img id="github-icon" src="https://png.icons8.com/metro/1600/github.png" alt="GitHub"/>

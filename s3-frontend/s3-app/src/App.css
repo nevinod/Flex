@@ -61,7 +61,7 @@
   position: absolute;
   width: 100%;
   top: 0px;
-  background-color: #E6EBE2;
+  /* background-color: #E6EBE2; */
   height: 100%;
   z-index: -1;
   /* margin-left: -8px; */
@@ -346,6 +346,15 @@
 }
 
 html {
+  /* background-image: url(https://wallpapersite.com/images/wallpapers/mountains-wallpaper-1920x1200-silent-sunset-minimal-5k-10447.jpg);
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
+}
+
+#background-pic {
   background-image: url(https://wallpapersite.com/images/wallpapers/mountains-wallpaper-1920x1200-silent-sunset-minimal-5k-10447.jpg);
   /* width: 100%; */
   height: 100%;
@@ -355,10 +364,10 @@ html {
 }
 
 #login-screen {
-  background-image: url(https://wallpapersite.com/images/wallpapers/mountains-wallpaper-1920x1200-silent-sunset-minimal-5k-10447.jpg);
+  /* background-image: url(https://wallpapersite.com/images/wallpapers/mountains-wallpaper-1920x1200-silent-sunset-minimal-5k-10447.jpg);
   width: 100%;
   height: 100%;
-  position: absolute;
+  position: absolute; */
 }
 
 #playlist-info {
@@ -380,35 +389,45 @@ html {
 #github-icon {
   position: fixed;
   left: 20px;
-  top: 95%;
+  bottom: 1%;
   height: 30px;
   z-index: 1;
   font-size: 20px;
+  filter: invert(100%);
 }
 
 #linkedin-icon {
   position: fixed;
   left: 80px;
-  top: 95%;
+  bottom: 1%;
   height: 30px;
   z-index: 1;
   font-size: 20px;
+  filter: invert(100%);
 }
 
 #github-icon-winston {
   position: fixed;
   right: 20px;
-  top: 95%;
+  bottom: 1%;
   height: 30px;
   z-index: 1;
   font-size: 20px;
+  filter: invert(100%);
 }
 
 #linkedin-icon-winston {
   position: fixed;
   right: 80px;
-  top: 95%;
+  bottom: 1%;
   height: 30px;
   z-index: 1;
   font-size: 20px;
+  filter: invert(100%);
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
+  position: relative;
 }
