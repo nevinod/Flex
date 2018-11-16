@@ -163,16 +163,19 @@
   top: 90px;
   /* width: 32%; */
   /* height: 89vh; */
-  margin-left: 5%;
+  /* margin-left: 5%; */
   /* border: 1px solid black; */
   background-color: transparent;
   /* margin-left: -100px; */
   /* margin-top: -100px; */
   z-index: 1;
-  overflow: scroll;
+  /* overflow: scroll; */
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-direction: row;
   flex-direction: row;
-  margin-top: 5px;
+  /* margin-top: 5px; */
+  margin: auto;
 }
 
 #playlist li {
@@ -334,18 +337,21 @@
   /* border-style: solid; */
   width: 450px;
   margin-top: 150px;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   /* box-shadow: 10px 10px 5px grey; */
   height: 500px;
   overflow: scroll;
-  background-color: #e6ffff;
-
+  background: rgba(0,0,0,0.5);
+  margin-bottom: 50px;
 }
 
 html {
   background-image: url(https://wallpapersite.com/images/wallpapers/mountains-wallpaper-1920x1200-silent-sunset-minimal-5k-10447.jpg);
   /* width: 100%; */
-  height: 200px;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #login-screen {
