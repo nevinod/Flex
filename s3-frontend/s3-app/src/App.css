@@ -346,21 +346,20 @@
 }
 
 html {
+  background: url(https://wallpapersite.com/images/wallpapers/mountains-wallpaper-1920x1200-silent-sunset-minimal-5k-10447.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#background-pic {
   /* background-image: url(https://wallpapersite.com/images/wallpapers/mountains-wallpaper-1920x1200-silent-sunset-minimal-5k-10447.jpg);
   width: 100%;
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover; */
-}
-
-#background-pic {
-  background-image: url(https://wallpapersite.com/images/wallpapers/mountains-wallpaper-1920x1200-silent-sunset-minimal-5k-10447.jpg);
-  /* width: 100%; */
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 #login-screen {
@@ -387,9 +386,9 @@ html {
 }
 
 #github-icon {
-  position: fixed;
+  position: absolute;
   left: 20px;
-  bottom: 1%;
+  bottom: 1vh;
   height: 30px;
   z-index: 1;
   font-size: 20px;
@@ -397,9 +396,9 @@ html {
 }
 
 #linkedin-icon {
-  position: fixed;
+  position: absolute;
   left: 80px;
-  bottom: 1%;
+  bottom: 1vh;
   height: 30px;
   z-index: 1;
   font-size: 20px;
@@ -407,9 +406,9 @@ html {
 }
 
 #github-icon-winston {
-  position: fixed;
+  position: absolute;
   right: 20px;
-  bottom: 1%;
+  bottom: 1vh;
   height: 30px;
   z-index: 1;
   font-size: 20px;
@@ -417,9 +416,9 @@ html {
 }
 
 #linkedin-icon-winston {
-  position: fixed;
+  position: absolute;
   right: 80px;
-  bottom: 1%;
+  bottom: 1vh;
   height: 30px;
   z-index: 1;
   font-size: 20px;
@@ -427,7 +426,7 @@ html {
 }
 
 #root {
-  width: 100%;
-  height: 100vh;
-  position: relative;
+  /* width: 100%; */
+  /* height: 100vh; */
+  /* position: relative; */
 }
