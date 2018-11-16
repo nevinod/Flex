@@ -83,7 +83,7 @@ class App extends Component {
     let parsed = queryString.parse(window.location.search)
     let accessToken = parsed.access_token
     // console.log("IN ALBUMS");
-    console.log(this.state.songs);
+    // console.log(this.state.songs);
     if(this.state.songs.items) {
       // console.log("IN IF");
       for(let i = 0; i < this.state.songs.items.length; i++) {
@@ -101,13 +101,13 @@ class App extends Component {
   render() {
     // this.fetchNow("3n3Ppam7vgaVa1iaRUc9Lp")
     if (this.state.playlists.items) {
-      console.log(this.state);
+      // console.log(this.state);
       return (
         <div>
-          <head>
+          <div>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"></link>
             <link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet"></link>
-          </head>
+          </div>
           <div id="navbar">
             <div id="logo-container">
               <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" alt="Spotify"/>
@@ -116,8 +116,8 @@ class App extends Component {
               </span>
             </div>
             <div id="spotifyBox">
-              <div id="getSpotify" onClick={() => window.location = 'https://www.spotify.com/us' }>
-                GET SPOTIFY
+              <div id="getSpotify" onClick={() => window.location = 'https://www.spotify.com/us/' }>
+                LOGOUT
               </div>
             </div>
           </div>
@@ -147,10 +147,10 @@ class App extends Component {
     else {
       return (
     <div >
-      <head>
+      <div>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"></link>
         <link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet"></link>
-      </head>
+      </div>
       <div id="login-screen"></div>
       <div id="navbar">
         <div id="logo-container">
@@ -191,7 +191,13 @@ class App extends Component {
           <br/>
           <br/>
           Give it a try, login below!
-          <div id="login-button" onClick={() => window.location = '/login' }>
+          <div id="login-button" onClick={() => {
+            console.log(window.location);
+            window.location = window.location.hostname.includes('localhost')
+            ? window.location = 'http://localhost:8888/login'
+            : window.location = '/login';
+            console.log(window.location);
+          }}>
             LOGIN SPOTIFY
           </div>
         </h3>

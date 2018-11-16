@@ -7,7 +7,7 @@ let app = express()
 
 let redirect_uri =
   process.env.REDIRECT_URI ||
-  // 'http://localhost:8888/callback'
+  'http://localhost:8888/callback' ||
   'https://spotifysongselector.herokuapp.com/callback'
 
 app.get('/login', function(req, res) {
@@ -25,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
+
 app.get('/callback', function(req, res) {
   let code = req.query.code || null
   let authOptions = {

@@ -2,9 +2,6 @@ import React from 'react';
 // import PlaylistItem from './playlistItem';
 
 class PlaylistIndex extends React.Component {
-  constructor() {
-    super();
-  }
 
   async combinedFuncs() {
       await this.props.getPlaylistSongs();
