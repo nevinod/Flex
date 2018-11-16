@@ -235,7 +235,7 @@
   background-color: transparent;
   z-index: 1; */
   /* margin-left: -50px; */
-  overflow: scroll;
+  /* overflow: scroll; */
   display: flex;
   flex-direction: column;
   /* margin-right: 10%; */
@@ -309,6 +309,8 @@
   border-radius: 10px;
   /* box-shadow: 10px 10px 5px grey; */
   background: rgba(0,0,0,0.5);
+  overflow: scroll;
+  margin-bottom: 50px;
 }
 
 #rec-title {
