@@ -190,11 +190,11 @@ class App extends Component {
           <br/>
           Give it a try, login below!
           <div id="login-button" onClick={() => {
-            console.log(window.location);
+            // console.log(window.location);
             window.location = window.location.hostname.includes('localhost')
             ? window.location = 'http://localhost:8888/login'
             : window.location = '/login';
-            console.log(window.location);
+            // console.log(window.location);
           }}>
             LOGIN SPOTIFY
           </div>
