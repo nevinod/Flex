@@ -191,9 +191,10 @@ class App extends Component {
           Give it a try, login below!
           <div id="login-button" onClick={() => {
             // console.log(window.location);
-            window.location = window.location.hostname.includes('localhost')
-            ? window.location = 'http://localhost:8888/login'
-            : window.location = '/login';
+            // window.location = window.location.hostname.includes('localhost')
+            // ? window.location = 'http://localhost:8888/login'
+            // : window.location = '/login';
+            window.location = 'http://localhost:8888/demolog'
             // console.log(window.location);
           }}>
             LOGIN SPOTIFY
