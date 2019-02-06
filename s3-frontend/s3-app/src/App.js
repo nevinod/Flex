@@ -195,18 +195,15 @@ class App extends Component {
             ? window.location = 'http://localhost:8888/login'
             : window.location = '/login';
 
-            // window.location = 'http://localhost:8888/demolog'
             // console.log(window.location);
           }}>
             LOGIN SPOTIFY
           </div>
           <div id="demo-button" onClick={() => {
             // console.log(window.location);
-            // window.location = window.location.hostname.includes('localhost')
-            // ? window.location = 'http://localhost:8888/login'
-            // : window.location = '/login';
-
-            window.location = 'http://localhost:8888/demolog'
+            window.location = window.location.hostname.includes('localhost')
+            ? window.location = 'http://localhost:8888/demolog'
+            : window.location = '/demolog';
             // console.log(window.location);
           }}>
             DEMO LOGIN
