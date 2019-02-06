@@ -27,8 +27,12 @@ app.get('/', function (req, res) {
 });
 
 app.get('/callback', function(req, res) {
+  // console.log(req);
+  console.log(`'Authorization': 'Basic ' + ${(new Buffer(
+    process.env.SPOTIFY_CLIENT_ID + ':' + process.env.SPOTIFY_CLIENT_SECRET
+  ).toString('base64'))}`);
   let code = req.query.code || null
-  console.log(`CODEEEEEE --- ${code}`);
+  // console.log(`CODEEEEEE --- ${code}`);
   let authOptions = {
     url: 'https://accounts.spotify.com/api/token',
     form: {
@@ -46,12 +50,30 @@ app.get('/callback', function(req, res) {
   request.post(authOptions, function(error, response, body) {
     var access_token = body.access_token
     let uri = process.env.FRONTEND_URI || 'http://localhost:3000'
+    console.log(`/callback ${body.refresh_token}`);
     res.redirect(uri + '?access_token=' + access_token)
   })
 })
 
 app.get('/demolog', function(req, res) {
-  res.redirect(uri + '?access_token=BQCrLlCo3qH20XkHv5FsesVj3g1UG49FeVSw5hXJW_lwZJ6GgP27mLWN8VSCjVMt8KauoMv0Iqimo5ElIHza0DyxcKf4A90-EaSpdmGgqzFc7sZBTRujN9H35eR-r2BoQiTbt3DWra_H1x59qduB7rrEjyA9jYDs6TM7eQ')
+  let authOptions = {
+    url: 'https://accounts.spotify.com/api/token',
+    form: {
+      grant_type: 'refresh_token',
+      refresh_token: 'AQC6AbYvryFuCoy_We77vkDF209UWHqnn9qbtwWvIv8Dz47f0cDeEPiI4oWU87dOy3uLaNpXZrm3TL6gdE75PnEPbs8DgJEUsjeFwiHcP1Kk2sO9Z8XBNY1c6CNK1FljQDlhyg'
+    },
+    headers: {
+      'Authorization': 'Basic ' + (new Buffer(
+        process.env.SPOTIFY_CLIENT_ID + ':' + process.env.SPOTIFY_CLIENT_SECRET
+      ).toString('base64'))
+    },
+    json: true
+  }
+  request.post(authOptions, function(error, response, body) {
+    console.log(`/demolog ${body}`);
+    let uri = process.env.FRONTEND_URI || 'http://localhost:3000'
+    res.redirect(uri + '?access_token=' + body.access_token);
+  })
 })
 
 let port = process.env.PORT || 8888
