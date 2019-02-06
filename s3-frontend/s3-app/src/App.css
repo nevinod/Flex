@@ -98,6 +98,28 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+#demo-button {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  font-size: 15px;
+  border: 1px solid #4bd75f;
+  background-color: #4bd75f;
+  color: white;
+  font-family: Circular,Helvetica,Arial,sans-serif;
+  padding: 15px 58px;
+  border-radius: 200px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  /* top: 460px; */
+  margin-top: 80px;
+  left: 49%;
+  width: 261px;
+  text-align: center;
+  margin-left: -178px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 #s3-pitch {
   display: block;
   position: absolute;
