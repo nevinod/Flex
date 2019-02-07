@@ -196,7 +196,9 @@ class App extends Component {
           S3 aims to provide the user with new and refreshing sound waves with a click of a button. After the user chooses a playlist from their profile, S3 provides a list of songs for the user to listen to that is similar in sound.
           <br/>
           <br/>
-          Give it a try, login below!
+          Give it a try, login below.
+          <br/>
+          Or try our demo!
           <div id="login-button" onClick={() => {
             // console.log(window.location);
             window.location = window.location.hostname.includes('localhost')
