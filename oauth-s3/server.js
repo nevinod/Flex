@@ -1,13 +1,9 @@
 let express = require('express');
 let request = require('request');
 let querystring = require('querystring');
-let favicon = require('serve-favicon');
 const path = require('path');
 
 let app = express()
-
-// favicon
-app.use(favicon(__dirname + '/images/iconfinder_spotify_287525.svg'))
 
 let redirect_uri =
   process.env.REDIRECT_URI ||
