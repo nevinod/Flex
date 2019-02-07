@@ -38,7 +38,7 @@ class PlaylistIndex extends React.Component {
                 { this.props.data.items.map(item =>
                 <li key={Math.random().toString(36).substr(2, 9)} onClick={() => this.combinedFuncs()}>
                     <div id="playlist-img" >
-                      <img alt="" src={item.images[0].url} height="100" width="100"/>
+                      <img alt="" src={item.images[0].url} height="80" width="80"/>
                       <div id="playlist-info">
                         <h1 id="playlist-title">
                           {item.name}
@@ -85,7 +85,7 @@ class PlaylistIndex extends React.Component {
               { this.props.data.items.map(item =>
               <li id="playlist-item" key={Math.random().toString(36).substr(2, 9)} onClick={() => this.combinedFuncs()}>
                 <div id="playlist-img" >
-                  <img alt="" src={item.images[0].url} height="100" width="100" />
+                  <img alt="" src={item.images[0].url} height="80" width="80" />
                   <div id="playlist-info">
                     <h1 id="playlist-title">
                       {item.name}
