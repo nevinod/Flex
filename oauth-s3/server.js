@@ -1,9 +1,13 @@
-let express = require('express')
-let request = require('request')
-let querystring = require('querystring')
+let express = require('express');
+let request = require('request');
+let querystring = require('querystring');
+let favicon = require('serve-favicon');
 const path = require('path');
 
 let app = express()
+
+// favicon
+app.use(favicon(__dirname + '/images/iconfinder_spotify_287525.svg'))
 
 let redirect_uri =
   process.env.REDIRECT_URI ||
@@ -75,8 +79,8 @@ app.get('/demolog', function(req, res) {
     res.redirect(uri + '?access_token=' + body.access_token);
   })
 })
-
 let port = process.env.PORT || 8888
 
+console.log(`dir name ${__dirname}`);
 console.log(`Listening on port ${port}. Go /login to initiate authentication flow.`)
 app.listen(port)
