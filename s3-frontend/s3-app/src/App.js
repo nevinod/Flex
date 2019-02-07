@@ -109,7 +109,11 @@ class App extends Component {
             <link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet"></link>
           </div>
           <div id="navbar">
-            <div id="logo-container">
+            <div id="logo-container" onClick={() => {
+              window.location = window.location.hostname.includes('localhost')
+              ? window.location = 'http://localhost:3000/'
+              : window.location = '/';
+            }}>
               <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" alt="Spotify"/>
               <span id="title">
                 S 3
@@ -153,7 +157,11 @@ class App extends Component {
       </div>
       <div id="login-screen"></div>
       <div id="navbar">
-        <div id="logo-container">
+        <div id="logo-container" onClick={() => {
+          window.location = window.location.hostname.includes('localhost')
+          ? window.location = 'http://localhost:3000/'
+          : window.location = '/';
+        }}>
           <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" alt="Spotify"/>
           <span id="title">
             S 3

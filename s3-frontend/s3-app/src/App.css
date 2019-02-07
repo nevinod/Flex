@@ -14,7 +14,7 @@
   color: transparent;
   display: inline-block;
   width: 140px;
-  top: 20px;
+  top: 10px;
 }
 
 #title {
@@ -22,7 +22,7 @@
   display: inline-block;
   color: #4bd75f;
   border-left: 1px solid #919496;
-  top: 12px;
+  top: 2px;
   margin-left: 10px;
   font-size: 33px;
   padding: 0 0 0 17px;
@@ -71,8 +71,10 @@
   position: absolute;
   left: 21%;
   width: 235px;
-  height: 100px;
+  height: 54px;
+  top: 10px;
   float: left;
+  cursor: pointer;
 }
 
 
@@ -103,7 +105,7 @@
   position: absolute;
   display: block;
   font-size: 15px;
-  border: 1px solid #4bd75f;
+  border: 1px solid #0c2910;
   background-color: #f7f4f4;
   color: #0c2910;
   font-family: Circular,Helvetica,Arial,sans-serif;

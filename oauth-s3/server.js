@@ -60,7 +60,7 @@ app.get('/demolog', function(req, res) {
     url: 'https://accounts.spotify.com/api/token',
     form: {
       grant_type: 'refresh_token',
-      refresh_token: 'AQC6AbYvryFuCoy_We77vkDF209UWHqnn9qbtwWvIv8Dz47f0cDeEPiI4oWU87dOy3uLaNpXZrm3TL6gdE75PnEPbs8DgJEUsjeFwiHcP1Kk2sO9Z8XBNY1c6CNK1FljQDlhyg'
+      refresh_token: 'AQDgY_3vRcCtQ0F230OV_hf2GBt_CoZ_ugEsY886OutJpK_iqXZakeUA_wKFpaXXfP4lB516uQRDzNwYJNiCq3-bCFFEQ63cePoB46G_cWv_YwLXKPK_rXFt14Ww--43rwfHZw'
     },
     headers: {
       'Authorization': 'Basic ' + (new Buffer(
