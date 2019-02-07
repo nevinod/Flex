@@ -161,9 +161,10 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 } */
 
+/* Media queries ----------------------------------------------------*/
 @media (max-width: 820px) {
   #spotifyBox {
-    display: none;
+    right: 10px;
   }
 
   #logo-container {
@@ -175,6 +176,36 @@
   #navbar {
     /* height: 70px; */
   }
+
+  #linkedin-icon, #github-icon, #linkedin-icon-winston, #github-icon-winston   {
+    top: 100px
+  }
+}
+
+@media (max-width: 630px) {
+  #getSpotify {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    right: 10px;
+    font-size: 12px;
+    float: right;
+    border: 1px solid #4bd75f;
+    border-radius: 8px;
+    background-color: #4bd75f;
+    color: white;
+    font-family: Circular,Helvetica,Arial,sans-serif;
+    top: 19px;
+    padding: 9px 30px;
+    padding-left: 26px;
+    border-radius: 200px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-align: center;
+    width: 50px;
+  }
+  /* top: 11px; */
+  /* width: 50px; */
 }
 
 
