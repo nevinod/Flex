@@ -102,7 +102,7 @@ class PlaylistIndex extends React.Component {
       )
     } else {
       return (
-      <div>
+      <div id="spinner">
         <h1>waiting</h1>
       </div>
       )

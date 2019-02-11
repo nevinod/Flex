@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 import './App.css';
 import queryString from 'query-string'
 import PlaylistIndex from './playlistIndex'
-// import merge from 'lodash/merge';
 
 class App extends Component {
   constructor() {
@@ -26,14 +24,10 @@ class App extends Component {
   componentWillMount() {
     let parsed = queryString.parse(window.location.search)
     let accessToken = parsed.access_token
-    // let that = this
     fetch('https://api.spotify.com/v1/me/playlists', {
       headers: { 'Authorization': 'Bearer ' + accessToken }
     }).then(response => response.json())
       .then(data => this.setState({playlists: data }))
-      // .then(() => that.getPlaylistSongs())
-      // .then(() => that.getAlbumsFromSongs())
-      // .then(() => that.recommendation())
   }
 
   async getPlaylistSongs() {
@@ -44,7 +38,10 @@ class App extends Component {
         await fetch(`https://api.spotify.com/v1/users/${this.state.playlists.items[i].owner.id}/playlists/${this.state.playlists.items[i].id}/tracks`, {
           headers: { 'Authorization': 'Bearer ' + accessToken }
         }).then(response => response.json())
-          .then(data => this.setState({songs: data}))
+          .then(data =>{
+            // console.log(`ITEMS ${JSON.stringify(data.items)}`);
+            this.setState({songs: data});
+          })
       }
     }
   }
@@ -57,6 +54,7 @@ class App extends Component {
       return b.track.popularity - a.track.popularity
     })
     this.setState({sorted: tempSorted})
+    console.log(this.state.songs);
     if(this.state.songs.items && notUnique) {
       let templen = this.state.sorted.length
       await fetch(`https://api.spotify.com/v1/recommendations?seed_tracks=${this.state.sorted[0].track.id},${this.state.sorted[1].track.id},${this.state.sorted[2].track.id},${this.state.sorted[templen - 2].track.id},${this.state.sorted[templen - 1].track.id}&limit=10`, {
@@ -82,26 +80,23 @@ class App extends Component {
   async getAlbumsFromSongs() {
     let parsed = queryString.parse(window.location.search)
     let accessToken = parsed.access_token
-    // console.log("IN ALBUMS");
-    // console.log(this.state.songs);
     if(this.state.songs.items) {
-      // console.log("IN IF");
       for(let i = 0; i < this.state.songs.items.length; i++) {
+        console.log(`song ${JSON.stringify(this.state.songs.items[i])}`);
         await fetch(`https://api.spotify.com/v1/albums/${this.state.songs.items[i].track.album.id}`, {
           headers: { 'Authorization': 'Bearer ' + accessToken }
         }).then(response => response.json())
           .then(data => {
             let temp = this.state.albums
             temp.push(data)
+            // console.log(`albums ${JSON.stringify(this.state.albums)}`);
             this.setState({albums: temp}) })
       }
     }
   }
 
   render() {
-    // this.fetchNow("3n3Ppam7vgaVa1iaRUc9Lp")
     if (this.state.playlists.items) {
-      // console.log(this.state);
       return (
         <div id="background-pic">
           <div>
@@ -200,21 +195,16 @@ class App extends Component {
           <br/>
           Or try our demo!
           <div id="login-button" onClick={() => {
-            // console.log(window.location);
             window.location = window.location.hostname.includes('localhost')
             ? window.location = 'http://localhost:8888/login'
             : window.location = '/login';
-
-            // console.log(window.location);
           }}>
             LOGIN SPOTIFY
           </div>
           <div id="demo-button" onClick={() => {
-            // console.log(window.location);
             window.location = window.location.hostname.includes('localhost')
             ? window.location = 'http://localhost:8888/demolog'
             : window.location = '/demolog';
-            // console.log(window.location);
           }}>
             DEMO LOGIN
           </div>
