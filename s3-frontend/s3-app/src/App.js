@@ -12,10 +12,8 @@ class App extends Component {
       songs: {},
       albums: [],
       recommended: {},
-      loggedIn: false,
       sorted: []
     }
-    // this.getAlbumsFromSongs = this.getAlbumsFromSongs.bind(this)
     this.getPlaylistSongs = this.getPlaylistSongs.bind(this)
     this.recommendation = this.recommendation.bind(this)
     this.getAlbumsFromSongs = this.getAlbumsFromSongs.bind(this)
@@ -30,19 +28,15 @@ class App extends Component {
       .then(data => this.setState({playlists: data }))
   }
 
-  async getPlaylistSongs() {
+  async getPlaylistSongs(id) {
     let parsed = queryString.parse(window.location.search)
     let accessToken = parsed.access_token
     if(this.state.playlists.items) {
-      for(let i = 0; i < this.state.playlists.items.length; i++) {
-        await fetch(`https://api.spotify.com/v1/users/${this.state.playlists.items[i].owner.id}/playlists/${this.state.playlists.items[i].id}/tracks`, {
-          headers: { 'Authorization': 'Bearer ' + accessToken }
-        }).then(response => response.json())
-          .then(data =>{
-            // console.log(`ITEMS ${JSON.stringify(data.items)}`);
-            this.setState({songs: data});
-          })
-      }
+      await fetch(`https://api.spotify.com/v1/playlists/${this.state.playlists.items[id].id}/tracks`, {
+        headers: { 'Authorization': 'Bearer ' + accessToken }
+      })
+      .then(response => response.json())
+      .then(data => this.setState({songs: data}))
     }
   }
 
@@ -54,35 +48,30 @@ class App extends Component {
       return b.track.popularity - a.track.popularity
     })
     this.setState({sorted: tempSorted})
-    console.log(this.state.songs);
-    if(this.state.songs.items && notUnique) {
-      let templen = this.state.sorted.length
-      await fetch(`https://api.spotify.com/v1/recommendations?seed_tracks=${this.state.sorted[0].track.id},${this.state.sorted[1].track.id},${this.state.sorted[2].track.id},${this.state.sorted[templen - 2].track.id},${this.state.sorted[templen - 1].track.id}&limit=10`, {
-        headers: { 'Authorization': 'Bearer ' + accessToken }
-      }).then(response => response.json())
+    if(this.state.songs.items.length > 0 && notUnique) {
+      if (this.state.songs.items.length >= 5) {
+        let templen = this.state.sorted.length
+        await fetch(`https://api.spotify.com/v1/recommendations?seed_tracks=${this.state.sorted[0].track.id},${this.state.sorted[1].track.id},${this.state.sorted[2].track.id},${this.state.sorted[templen - 2].track.id},${this.state.sorted[templen - 1].track.id}&limit=10`, {
+          headers: { 'Authorization': 'Bearer ' + accessToken }
+        }).then(response => response.json())
         .then(data => this.setState({recommended: data}))
+      } else {
+        let templen = this.state.sorted.length
+        await fetch(`https://api.spotify.com/v1/recommendations?seed_tracks=${this.state.sorted[0].track.id}&limit=10`, {
+          headers: { 'Authorization': 'Bearer ' + accessToken }
+        }).then(response => response.json())
+        .then(data => this.setState({recommended: data}))
+      }
     }
 
   }
-
-  // fetchNow(trackID) {
-  //   let found = false
-  //   let parsed = queryString.parse(window.location.search)
-  //   let accessToken = parsed.access_token
-  //   fetch(`https://api.spotify.com/v1/tracks/${trackID}`, {
-  //     headers: { 'Authorization': 'Bearer ' + accessToken }
-  //   }).then(response => response.json())
-  //     .then(data => return data)
-  // }
-
-
 
   async getAlbumsFromSongs() {
     let parsed = queryString.parse(window.location.search)
     let accessToken = parsed.access_token
     if(this.state.songs.items) {
       for(let i = 0; i < this.state.songs.items.length; i++) {
-        console.log(`song ${JSON.stringify(this.state.songs.items[i])}`);
+        // console.log(`song ${JSON.stringify(this.state.songs.items[i])}`);
         await fetch(`https://api.spotify.com/v1/albums/${this.state.songs.items[i].track.album.id}`, {
           headers: { 'Authorization': 'Bearer ' + accessToken }
         }).then(response => response.json())

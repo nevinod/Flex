@@ -3,8 +3,8 @@ import React from 'react';
 
 class PlaylistIndex extends React.Component {
 
-  async combinedFuncs() {
-      await this.props.getPlaylistSongs();
+  async combinedFuncs(id) {
+      await this.props.getPlaylistSongs(id);
       this.props.getAlbumsFromSongs();
       this.props.recommendation();
     // console.log("HEWWO");
@@ -35,8 +35,8 @@ class PlaylistIndex extends React.Component {
                 <h2>
                 Playlists
                 </h2>
-                { this.props.data.items.map(item =>
-                <li key={Math.random().toString(36).substr(2, 9)} onClick={() => this.combinedFuncs()}>
+                { this.props.data.items.map((item, idx) =>
+                <li key={Math.random().toString(36).substr(2, 9)} onClick={() => this.combinedFuncs(idx)}>
                     <div id="playlist-img" >
                       <img alt="" src={item.images[0].url} height="80" width="80"/>
                       <div id="playlist-info">
@@ -82,8 +82,8 @@ class PlaylistIndex extends React.Component {
             <h2>
             Playlists
             </h2>
-              { this.props.data.items.map(item =>
-              <li id="playlist-item" key={Math.random().toString(36).substr(2, 9)} onClick={() => this.combinedFuncs()}>
+              { this.props.data.items.map((item, idx) =>
+              <li id="playlist-item" key={Math.random().toString(36).substr(2, 9)} onClick={() => this.combinedFuncs(idx)}>
                 <div id="playlist-img" >
                   <img alt="" src={item.images[0].url} height="80" width="80" />
                   <div id="playlist-info">
