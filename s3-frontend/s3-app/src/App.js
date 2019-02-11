@@ -56,7 +56,6 @@ class App extends Component {
         }).then(response => response.json())
         .then(data => this.setState({recommended: data}))
       } else {
-        let templen = this.state.sorted.length
         await fetch(`https://api.spotify.com/v1/recommendations?seed_tracks=${this.state.sorted[0].track.id}&limit=10`, {
           headers: { 'Authorization': 'Bearer ' + accessToken }
         }).then(response => response.json())
